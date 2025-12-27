@@ -45,6 +45,37 @@ This will:
 1. Open a browser window for Google OAuth login
 2. Store your tokens securely in `~/.config/antigravity-openai/tokens.json`
 
+## Docker
+
+### Build the image
+
+```bash
+docker build -t antigravity-openai .
+```
+
+### Run the container
+
+```bash
+docker run -p 3000:3000 -v ~/.config/antigravity-openai:/home/app/.config/antigravity-openai antigravity-openai
+```
+
+The volume mount persists tokens between container restarts.
+
+### Using tokens from another machine
+
+Tokens are portable and not machine-specific. To use tokens generated elsewhere:
+
+1. Run `bun run auth` on a machine with a browser
+2. Copy `~/.config/antigravity-openai/tokens.json` to the target machine
+3. Mount the token file or directory when running the container
+
+```bash
+# Mount just the token file
+docker run -p 3000:3000 -v /path/to/tokens.json:/home/app/.config/antigravity-openai/tokens.json antigravity-openai
+```
+
+The server will automatically refresh the access token on first request if it's expired.
+
 ## Usage
 
 ### Start the server
