@@ -1,0 +1,19 @@
+{
+  "name": "antigravity-openai",
+  "version": "1.0.0",
+  "description": "OpenAI-compatible server for Google Antigravity models",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "start": "bun run src/index.ts",
+    "auth": "bun run src/auth.ts"
+  },
+  "dependencies": {
+    "elysia": "^1.2.25",
+    "@elysiajs/cors": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.5",
+    "typescript": "^5.7.3"
+  }
+}
