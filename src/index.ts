@@ -33,6 +33,10 @@ const app = new Elysia()
       object: "model",
       created: Math.floor(Date.now() / 1000),
       owned_by: model.owned_by,
+      display_name: model.display_name,
+      description: model.description,
+      type: model.type,
+      context_length: model.context_length,
     }));
 
     return {
